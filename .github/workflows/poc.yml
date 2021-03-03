@@ -1,0 +1,47 @@
+---
+name: "PoC CircleCI Jobs"
+
+
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+    branches: master
+
+jobs:
+  nms-e2e-test:
+    name: NMS E2E Test
+    runs-on: ubuntu-16.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install Latests Google Chrome Dev Package
+        run: |
+          # Install latest chrome dev package
+          # Note: this installs the necessary libs to make the bundled version of Chromium that Puppeteer
+          # installs, work.
+          curl -sS https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google.list
+          sudo apt-get update -y
+          sudo apt-get install -y google-chrome-stable libxss1 --no-install-recommends
+      - name: Install Dependencies
+        working-directory: nms/app
+        run: |
+          yarn install --frozen-lockfile
+      - name: Generate Certs
+        working-directory: orc8r/cloud/deploy/scripts
+        run: |
+          DOMAIN=magma.test
+          ./self_sign_certs.sh $DOMAIN
+          ./create_application_certs.sh $DOMAIN
+          echo "API_CERT_FILENAME=${PWD}/admin_operator.pem" >> $GITHUB_ENV
+          echo "API_PRIVATE_KEY_FILENAME=${PWD}/admin_operator.key.pem" >> $GITHUB_ENV
+      - run: |
+          cd ${GITHUB_WORKSPACE}/nms/app/packages/magmalte
+          ./e2e_test_setup.sh
+        env:
+          NMS_ROOT: ${GITHUB_WORKSPACE}/nms/app/packages/magmalte
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome-stable
