@@ -10,7 +10,7 @@ on:
 
 jobs:
   hourly_xwfm:
-    runs_on: ubuntu-16.04
+    runs-on: ubuntu-16.04
     steps:
       # TODO: Slack notifications managed through GH
       - uses: actions/checkout@v2
