@@ -5,6 +5,8 @@ name: "PoC CircleCI: xwmf"
 on:
   schedule:
     - cron: "0 * * * *"
+  pull_request:
+    branches: master
     # only:
     #   branches: master
 
