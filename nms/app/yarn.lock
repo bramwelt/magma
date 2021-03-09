@@ -1533,10 +1533,10 @@
   resolved "https://registry.yarnpkg.com/@fbcnms/projects/-/projects-0.1.0.tgz#7e1d6641e6dbe0f8137560f25c6d89b1d5cd9354"
   integrity sha512-vdP5+Y4XWkdVR3H97NCbZiuMpi2xSelyUFg5AR7vZXWzXLFKVziSQEvvqG442U3PQbuLV15LShfYJhEHDc13fA==
 
-"@fbcnms/sequelize-models@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@fbcnms/sequelize-models/-/sequelize-models-0.1.0.tgz#99201a0ec416c8d3dd141f7a4e7e765cd5e7cb33"
-  integrity sha512-6PPG2dkddTrJzgoo9dkvXrEryDKrKAwpSa86PfKlfASeEfpIfPU2LOJhcIwzgDLaGQTEsV4XVagsqvNqo7vL4A==
+"@fbcnms/sequelize-models@^0.1.0", "@fbcnms/sequelize-models@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@fbcnms/sequelize-models/-/sequelize-models-0.1.2.tgz#edfa3ab06f84789ea40eb299a67f2a60abff4747"
+  integrity sha512-iCB868/+8sB5qbdOdMKwKXtd1+LYvQCy2bAe6jLgShD8CWn56x+m2nmUzRrlwFCelmRfuuOZOhNL145VcbjODg==
   dependencies:
     sequelize "^5.8.5"
 
