@@ -10,6 +10,7 @@ on:
 jobs:
   docker:
     name: "Run on a Docker container"
+    runs-on: ubuntu-20.04
     # This is the same image being used in CircleCI
     container: circleci/golang:1.13-buster-node-browsers-legacy
     steps:
