@@ -35,10 +35,10 @@ jobs:
             #echo "quit" | virsh -c qemu:///session
       - name: Debug libvirt install
         run: |
-            # Note: See if the help output includes the socket location to
-            # compare
-            #   libvirtd -h
-            stat $XDG_RUNTIME_DIR/libvirt/libvirt-sock
+            ls /var/run/
+            virsh version --daemon
+            virsh list --all
+            ls /var/run/libvirt
       - name: Install Vagrant Libvirt Plugin
         run: vagrant plugin install vagrant-libvirt
       - run: |
