@@ -1,0 +1,23 @@
+---
+name: "Docker & Machine"
+
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  docker:
+    name: "Run on a Docker container"
+    # This is the same image being used in CircleCI
+    runs-on: circleci/golang:1.13-buster-node-browsers-legacy
+    steps:
+      - actions/checkout@v2
+      - run: echo "hello, world!"
+  machine:
+    name: "Run on a (Github hosted) machine"
+    runs-on: ubuntu-20.04
+    steps:
+      - actions/checkout@v2
+      - run: echo "hello, world!"

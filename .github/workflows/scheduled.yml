@@ -1,28 +1,14 @@
 ---
-name: "PoC CircleCI: xwmf"
+name: "Scheduled Jobs"
 
 # yamllint disable-line rule:truthy
 on:
   schedule:
     - cron: "0 * * * *"
-    # only:
-    #   branches: master
 
 jobs:
-  hourly_xwfm:
+  hourly:
     runs-on: ubuntu-16.04
     steps:
-      # TODO: Slack notifications managed through GH
       - uses: actions/checkout@v2
-      - name: Loading openvswitch kernel module
-        run: sudo modprobe openvswitch
-      - name: Setup Environment Variables
-        run: |
-          echo "MAGMA_ROOT=${PWD}" >> $GITHUB_ENV
-          echo "RUN_UID=$RANDOM" >> $GITHUB_ENV
-      - run: |
-          env
-          docker login -u ${XWF_ARTIFACTORY_USER} -p ${XWF_ARTIFACTORY_API_KEY} ${XWF_ARTIFACTORY_LINK}
-          cd ${MAGMA_ROOT}/xwf/docker/
-          docker-compose pull || true
-          docker-compose build --parallel && docker-compose up -d && docker exec tests pytest --log-cli-level=info code/tests.py
+      - run: echo "hello, world!"
