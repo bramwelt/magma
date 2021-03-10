@@ -11,7 +11,7 @@ jobs:
   docker:
     name: "Run on a Docker container"
     # This is the same image being used in CircleCI
-    runs-on: circleci/golang:1.13-buster-node-browsers-legacy
+    container: circleci/golang:1.13-buster-node-browsers-legacy
     steps:
       - actions/checkout@v2
       - run: echo "hello, world!"
