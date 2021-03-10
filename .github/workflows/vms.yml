@@ -18,5 +18,6 @@ jobs:
   custom-size:
     # These are not available yet.
     name: "Run on a custom instance size"
+    runs-on: ubuntu-latest
     steps:
       - run: false
