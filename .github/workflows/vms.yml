@@ -25,6 +25,10 @@ jobs:
     # Comes pre-installed with packer, virtualbox, and vagrant
     runs-on: macos-latest
     steps:
+      - name: Install libvirt package from Brew
+        run: brew install libvirt
+      - name: Install Vagrant Libvirt Plugin
+        run: vagrant plugin install vagrant-libvirt
       - run: |
             mkdir libvirt && cd libvirt
             vagrant init centos/7
