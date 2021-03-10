@@ -1,0 +1,22 @@
+---
+name: "Virtual Machines & Custom Sizes"
+
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  virt:
+    name: "Spin up a virtual machine"
+    # Catalina 10.15
+    runs-on: macos-latest
+    steps:
+      - actions/checkout@v2
+      - run: virsh list --all
+  custom-size:
+    # These are not available yet.
+    name: "Run on a custom instance size"
+    steps:
+      - run: false
