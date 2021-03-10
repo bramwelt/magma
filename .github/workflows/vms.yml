@@ -33,9 +33,12 @@ jobs:
             brew services start libvirt
             # Verify libvirt is up
             #echo "quit" | virsh -c qemu:///session
+      - name: Debug libvirt install
+        run: |
             # Note: See if the help output includes the socket location to
             # compare
-            libvirtd -h
+            #   libvirtd -h
+            stat $XDG_RUNTIME_DIR/libvirt/libvirt-sock
       - name: Install Vagrant Libvirt Plugin
         run: vagrant plugin install vagrant-libvirt
       - run: |
