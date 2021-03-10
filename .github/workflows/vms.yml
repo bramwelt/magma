@@ -8,17 +8,17 @@ on:
       - master
 
 jobs:
-  virt-virtualbox:
-    name: "Spin up a virtual machine (virtualbox)"
-    # Catalina 10.15
-    # Comes pre-installed with packer, virtualbox, and vagrant
-    runs-on: macos-latest
-    steps:
-      - run: |
-            mkdir vbox && cd vbox
-            vagrant init hashicorp/bionic64
-            vagrant up
-            vagrant destroy -f
+  # virt-virtualbox:
+  #   name: "Spin up a virtual machine (virtualbox)"
+  #   # Catalina 10.15
+  #   # Comes pre-installed with packer, virtualbox, and vagrant
+  #   runs-on: macos-latest
+  #   steps:
+  #     - run: |
+  #           mkdir vbox && cd vbox
+  #           vagrant init hashicorp/bionic64
+  #           vagrant up
+  #           vagrant destroy -f
   virt-libvirt:
     name: "Spin up a virtual machine (libvirt)"
     # Catalina 10.15
@@ -43,9 +43,9 @@ jobs:
             vagrant init centos/7
             vagrant up --provider libvirt
             vagrant destroy -f
-  custom-size:
-    # These are not available yet.
-    name: "Run on a custom instance size"
-    runs-on: ubuntu-latest
-    steps:
-      - run: false
+  # custom-size:
+  #   # These are not available yet.
+  #   name: "Run on a custom instance size"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: false
