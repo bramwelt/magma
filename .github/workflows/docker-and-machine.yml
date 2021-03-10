@@ -13,11 +13,11 @@ jobs:
     # This is the same image being used in CircleCI
     container: circleci/golang:1.13-buster-node-browsers-legacy
     steps:
-      - actions/checkout@v2
+      - uses: actions/checkout@v2
       - run: echo "hello, world!"
   machine:
     name: "Run on a (Github hosted) machine"
     runs-on: ubuntu-20.04
     steps:
-      - actions/checkout@v2
+      - uses: actions/checkout@v2
       - run: echo "hello, world!"
