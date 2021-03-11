@@ -47,7 +47,7 @@ jobs:
               config.vm.box = "centos/7"
               config.vm.provider :libvirt do |libvirt|
                 libvirt.socket = "$HOME/.cache/libvirt/libvirt-sock"
-                libvirt.uri = "qemu:///session"
+                libvirt.uri = "qemu:///session?no_verify=1&keyfile=/Users/runner/.ssh/id_rsa&socket=/Users/runner/.cache/libvirt/libvirt-sock"
               end
             end
             EOL
