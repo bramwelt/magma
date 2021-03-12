@@ -5,10 +5,10 @@ name: "Docker & Machine"
 on:
   pull_request:
     branches:
-      - $default-branch
+      - master
   push:
     branches:
-      - $default-branch
+      - master
 
 jobs:
   docker:
