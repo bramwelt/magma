@@ -25,6 +25,7 @@ jobs:
     # Comes pre-installed with packer, virtualbox, and vagrant
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Install and start libvirt from Brew
         run: |
             brew install qemu libvirt
@@ -40,21 +41,24 @@ jobs:
       - name: Install Vagrant Libvirt Plugin
         run: vagrant plugin install vagrant-libvirt
       - run: |
-            mkdir libvirt && cd libvirt
+          cd lte/gateway
+          vagrant up
+      # - run: |
+      #       mkdir libvirt && cd libvirt
 
-            cat > Vagrantfile <<EOL
-            Vagrant.configure("2") do |config|
-              config.vm.box = "centos/7"
-              config.vm.provider :libvirt do |libvirt|
-                libvirt.driver = "qemu"
-                libvirt.socket = "$HOME/.cache/libvirt/libvirt-sock"
-                libvirt.uri = "qemu:///session?no_verify=1&keyfile=/Users/runner/.ssh/id_rsa&socket=/Users/runner/.cache/libvirt/libvirt-sock"
-              end
-            end
-            EOL
+      #       cat > Vagrantfile <<EOL
+      #       Vagrant.configure("2") do |config|
+      #         config.vm.box = "centos/7"
+      #         config.vm.provider :libvirt do |libvirt|
+      #           libvirt.driver = "qemu"
+      #           libvirt.socket = "$HOME/.cache/libvirt/libvirt-sock"
+      #           libvirt.uri = "qemu:///session?no_verify=1&keyfile=/Users/runner/.ssh/id_rsa&socket=/Users/runner/.cache/libvirt/libvirt-sock"
+      #         end
+      #       end
+      #       EOL
 
-            vagrant up --provider libvirt
-            vagrant destroy -f
+      #       vagrant up --provider libvirt
+      #       vagrant destroy -f
   # custom-size:
   #   # These are not available yet.
   #   name: "Run on a custom instance size"
