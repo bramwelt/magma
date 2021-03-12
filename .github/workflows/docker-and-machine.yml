@@ -23,5 +23,8 @@ jobs:
     name: "Run on a (Github hosted) machine"
     runs-on: ubuntu-20.04
     steps:
+      # Run on Ubuntu 20.04
       - uses: actions/checkout@v2
       - run: echo "hello, world!"
+      # Pull and run a container
+      - run: docker run hello-world
