@@ -26,21 +26,26 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install and start libvirt from Brew
-        run: |
-            brew install qemu libvirt
-            # brew tap jeffreywildman/homebrew-virt-manager
-            # brew install virt-manager virt-viewer
-            brew services start libvirt
-            # Verify libvirt is up
-            #echo "quit" | virsh -c qemu:///session
-      - name: Debug libvirt install
-        run: |
-            virsh list --all
-            ls $HOME/.cache/libvirt/
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install Ansible
+        run: pip install ansible
+      # - name: Install and start libvirt from Brew
+      #   run: |
+      #       brew install qemu libvirt
+      #       # brew tap jeffreywildman/homebrew-virt-manager
+      #       # brew install virt-manager virt-viewer
+      #       brew services start libvirt
+      #       # Verify libvirt is up
+      #       #echo "quit" | virsh -c qemu:///session
+      # - name: Debug libvirt install
+      #   run: |
+      #       virsh list --all
+      #       ls $HOME/.cache/libvirt/
       - name: Install Vagrant Plugins
         run: |
-            vagrant plugin install vagrant-libvirt
+            #vagrant plugin install vagrant-libvirt
             vagrant plugin install vagrant-vbguest
       - run: |
           cd lte/gateway
