@@ -42,7 +42,7 @@ jobs:
         run: vagrant plugin install vagrant-libvirt
       - run: |
           cd lte/gateway
-          vagrant up
+          vagrant up --provider=virtualbox
       # - run: |
       #       mkdir libvirt && cd libvirt
 
