@@ -38,8 +38,10 @@ jobs:
         run: |
             virsh list --all
             ls $HOME/.cache/libvirt/
-      - name: Install Vagrant Libvirt Plugin
-        run: vagrant plugin install vagrant-libvirt
+      - name: Install Vagrant Plugins
+        run: |
+            vagrant plugin install vagrant-libvirt
+            vagrant plugin install vagrant-vbguest
       - run: |
           cd lte/gateway
           vagrant up --provider=virtualbox
