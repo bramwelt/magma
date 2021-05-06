@@ -36,8 +36,8 @@ require (
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/go-swagger/go-swagger v0.21.0
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
-	github.com/golang/protobuf v1.3.3
-	github.com/google/go-cmp v0.4.0
+	github.com/golang/protobuf v1.4.3
+	github.com/google/go-cmp v0.5.4
 	github.com/google/uuid v1.1.1
 	github.com/hashicorp/go-multierror v1.0.0
 	github.com/labstack/echo v3.3.10+incompatible
@@ -47,12 +47,12 @@ require (
 	github.com/olivere/elastic/v7 v7.0.6
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/ory/go-acc v0.2.6
-	github.com/pkg/errors v0.8.1
+	github.com/pkg/errors v0.9.1
 	github.com/prometheus/alertmanager v0.17.0
-	github.com/prometheus/client_golang v1.5.1
+	github.com/prometheus/client_golang v1.10.0
 	github.com/prometheus/client_model v0.2.0
-	github.com/prometheus/common v0.9.1
-	github.com/prometheus/procfs v0.0.8
+	github.com/prometheus/common v0.18.0
+	github.com/prometheus/procfs v0.6.0
 	github.com/prometheus/prometheus v0.0.0-20190607092147-e23fa22233cf
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/spf13/cobra v1.0.0
@@ -60,8 +60,8 @@ require (
 	github.com/thoas/go-funk v0.7.0
 	github.com/vektra/mockery v0.0.0-20181123154057-e78b021dcbb5
 	github.com/wadey/gocovmerge v0.0.0-20160331181800-b5bfa59ec0ad
-	golang.org/x/net v0.0.0-20200324143707-d3edc9973b7e
-	golang.org/x/tools v0.0.0-20191012152004-8de300cfc20a
+	golang.org/x/net v0.0.0-20200625001655-4c5254603344
+	golang.org/x/tools v0.0.0-20200103221440-774c71fcf114
 	google.golang.org/grpc v1.31.0
 	gopkg.in/DATA-DOG/go-sqlmock.v1 v1.3.0
 	gopkg.in/yaml.v2 v2.3.0
